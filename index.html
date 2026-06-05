@@ -6,219 +6,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claim Your $500 Hollister Gift Card</title>
+<title>Costco Summer Savings</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter,Arial,sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
 background:#eef1f5;
 display:flex;
 justify-content:center;
-padding:40px 15px;
+align-items:center;
+min-height:100vh;
+padding:20px;
 }
 
 .container{
 width:100%;
-max-width:620px;
+max-width:640px;
 background:#fff;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+border-radius:20px;
+padding:35px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.hero{
-padding:40px 30px 30px;
+.logo{
 text-align:center;
+font-size:54px;
+font-weight:800;
+color:#e31837;
+margin-bottom:5px;
 }
 
-.badge{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:10px 18px;
-border:1px solid #cdd6e7;
-border-radius:999px;
-font-size:14px;
-font-weight:600;
-letter-spacing:2px;
-color:#23355d;
+.sublogo{
+text-align:center;
+font-size:15px;
+letter-spacing:4px;
+color:#666;
+margin-bottom:25px;
 text-transform:uppercase;
 }
 
-.badge-dot{
-width:20px;
-height:20px;
-border-radius:50%;
-background:#1d2f5b;
+.progress-wrap{
+margin-bottom:30px;
 }
 
-.hero h1{
-margin-top:24px;
-font-size:56px;
-line-height:1.05;
-font-family:Georgia,serif;
-font-weight:700;
-color:#1d1d1d;
+.progress-label{
+display:flex;
+justify-content:space-between;
+font-size:14px;
+color:#555;
+margin-bottom:8px;
 }
 
-.hero h1 span{
-color:#243a73;
+.progress-bar{
+height:10px;
+background:#e5e7eb;
+border-radius:999px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+background:#e31837;
+width:25%;
+transition:.3s;
+}
+
+.slide{
+display:none;
+}
+
+.slide.active{
+display:block;
+}
+
+h1{
+font-size:38px;
+text-align:center;
+margin-bottom:15px;
+line-height:1.2;
 }
 
 .subtitle{
-margin-top:16px;
-font-size:18px;
-color:#8a8a8a;
-line-height:1.6;
-}
-
-.divider{
-height:1px;
-background:#ececec;
-}
-
-.content{
-padding:22px 26px 35px;
-}
-
-.gift-card{
-background:linear-gradient(135deg,#13254c,#1d315d);
-border-radius:24px;
-padding:34px 26px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 10px 20px rgba(0,0,0,.15);
-margin-bottom:28px;
-}
-
-.brand-box{
-background:#fff;
-padding:14px 22px;
-border-radius:10px;
-font-family:Georgia,serif;
-font-weight:700;
-letter-spacing:2px;
-color:#1c2d57;
-}
-
-.card-left{
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.card-title{
-color:rgba(255,255,255,.55);
-font-size:28px;
-font-weight:600;
-}
-
-.card-right{
-text-align:right;
-color:white;
-}
-
-.card-right small{
-display:block;
-font-size:12px;
-letter-spacing:2px;
-opacity:.55;
-margin-bottom:6px;
-}
-
-.card-right h2{
-font-family:Georgia,serif;
-font-size:56px;
-font-weight:700;
-}
-
-.claim-title{
 text-align:center;
-font-size:14px;
-font-weight:700;
-letter-spacing:3px;
-color:#9a9a9a;
-margin-bottom:18px;
+color:#666;
+font-size:17px;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+.option{
+width:100%;
+padding:22px;
+margin-bottom:15px;
+border:1px solid #d9d9d9;
+border-radius:14px;
+background:#fff;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:.2s;
+}
+
+.option:hover{
+background:#f7f7f7;
 }
 
 .step{
-background:#f4f5f7;
-border:1px solid #e4e7eb;
-border-radius:18px;
-padding:18px 20px;
 display:flex;
 align-items:center;
-margin-bottom:14px;
+padding:18px;
+border:1px solid #e4e4e4;
+border-radius:14px;
+margin-bottom:15px;
 }
 
 .number{
-width:44px;
-height:44px;
-background:#1c2d57;
+width:42px;
+height:42px;
+background:#e31837;
+color:#fff;
 border-radius:50%;
 display:flex;
-justify-content:center;
 align-items:center;
-color:#fff;
-font-size:22px;
+justify-content:center;
 font-weight:700;
-margin-right:18px;
-box-shadow:0 8px 14px rgba(28,45,87,.25);
+margin-right:15px;
 }
 
 .step-text{
 font-size:18px;
-font-weight:600;
-color:#222;
 }
 
 .cta{
 display:block;
 width:100%;
-margin-top:34px;
-background:linear-gradient(135deg,#30446f,#1b2b54);
 padding:22px;
-border-radius:22px;
-text-align:center;
+margin-top:25px;
+background:#e31837;
+color:#fff;
 text-decoration:none;
-font-size:20px;
+text-align:center;
+font-size:22px;
 font-weight:700;
-color:white;
-letter-spacing:.5px;
-transition:.25s;
-}
-
-.cta:hover{
-transform:translateY(-2px);
+border-radius:14px;
 }
 
 .footer{
 text-align:center;
 font-size:14px;
-color:#8a8a8a;
-margin-top:18px;
+color:#777;
+margin-top:20px;
 line-height:1.6;
 }
 
-@media(max-width:640px){
+@media(max-width:600px){
 
-.hero h1{
+.logo{
 font-size:42px;
 }
 
-.card-title{
-display:none;
+h1{
+font-size:28px;
 }
 
-.card-right h2{
-font-size:42px;
+.option{
+font-size:16px;
 }
 
 .step-text{
@@ -227,101 +185,120 @@ font-size:16px;
 
 }
 </style>
-
 </head>
 <body>
 
 <div class="container">
 
-<div class="hero">
+<div class="logo">COSTCO</div>
+<div class="sublogo">Summer Savings Event</div>
 
-<div class="badge">
-<div class="badge-dot"></div>
-OFFICIAL REWARD PROGRAM
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Progress</span>
+<span id="percent">25%</span>
 </div>
 
-<h1>
-Claim Your <span>$500</span><br>
-Hollister Gift Card
-</h1>
+<div class="progress-bar">
+<div class="progress" id="progress"></div>
+</div>
+</div>
+
+<!-- Slide 1 -->
+
+<div class="slide active" id="slide1">
+
+<h1>Summer Savings Are Here</h1>
 
 <p class="subtitle">
-Follow the steps below and unlock your exclusive reward.
+Access seasonal discounts on outdoor furniture, patio sets, grills, appliances, electronics and more.
 </p>
 
-</div>
-
-<div class="divider"></div>
-
-<div class="content">
-
-<div class="gift-card">
-
-<div class="card-left">
-
-<div class="brand-box">
-HOLLISTER
-</div>
-
-<div class="card-title">
-GIFT CARD
-</div>
+<button class="option" onclick="nextSlide(2,50)">
+Check Eligibility
+</button>
 
 </div>
 
-<div class="card-right">
-<small>VALUE</small>
-<h2>$500</h2>
-</div>
+<!-- Slide 2 -->
+
+<div class="slide" id="slide2">
+
+<h1>How Often Do You Shop At Costco?</h1>
+
+<button class="option" onclick="nextSlide(3,100)">
+Weekly
+</button>
+
+<button class="option" onclick="nextSlide(3,100)">
+A Few Times A Month
+</button>
+
+<button class="option" onclick="nextSlide(3,100)">
+Occasionally
+</button>
+
+<button class="option" onclick="nextSlide(3,100)">
+Rarely
+</button>
 
 </div>
 
-<div class="claim-title">
-HOW TO CLAIM
-</div>
+<!-- Slide 3 -->
+
+<div class="slide" id="slide3">
+
+<h1>Claim Your Summer Savings</h1>
 
 <div class="step">
 <div class="number">1</div>
-<div class="step-text">
-Click on "Claim Now"
-</div>
+<div class="step-text">Click Claim Now</div>
 </div>
 
 <div class="step">
 <div class="number">2</div>
-<div class="step-text">
-Enter your email & basic information
-</div>
+<div class="step-text">Enter your email and basic information</div>
 </div>
 
 <div class="step">
 <div class="number">3</div>
-<div class="step-text">
-Complete 4–5 featured sponsor offers
-</div>
+<div class="step-text">Complete 3 to 5 featured sponsor offers</div>
 </div>
 
 <div class="step">
 <div class="number">4</div>
-<div class="step-text">
-Receive your reward confirmation
-</div>
+<div class="step-text">Access available Costco summer discounts</div>
 </div>
 
-<a
-class="cta"
-href="https://giftclick.org/aff_c?offer_id=2768&aff_id=62181">
-CLAIM MY $500 GIFT CARD →
+<a href="YOUR_REDIRECT_LINK_HERE" class="cta">
+CLAIM NOW
 </a>
 
 <div class="footer">
-Limited availability.<br>
-Rewards are released daily while supplies last.
+Limited availability. New summer offers released daily.
 </div>
 
 </div>
 
 </div>
+
+<script>
+
+function nextSlide(slideNumber, progressValue){
+
+document.querySelectorAll('.slide').forEach(slide=>{
+slide.classList.remove('active');
+});
+
+document.getElementById('slide'+slideNumber).classList.add('active');
+
+document.getElementById('progress').style.width=progressValue+'%';
+
+document.getElementById('percent').innerText=progressValue+'%';
+
+}
+
+</script>
 
 </body>
 </html></pre>
