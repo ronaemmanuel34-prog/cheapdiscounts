@@ -5,10 +5,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Costco Summer Savings</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -17,54 +19,48 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#eef1f5;
+background:#f5f6f8;
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
-padding:20px;
+padding:12px;
 }
 
-.container{
+.card{
 width:100%;
-max-width:640px;
+max-width:420px;
 background:#fff;
-border-radius:20px;
-padding:35px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-radius:18px;
+padding:22px;
+box-shadow:0 8px 24px rgba(0,0,0,.08);
 }
 
 .logo{
 text-align:center;
-font-size:54px;
-font-weight:800;
+font-size:42px;
+font-weight:900;
 color:#e31837;
-margin-bottom:5px;
+line-height:1;
 }
 
-.sublogo{
+.tagline{
 text-align:center;
-font-size:15px;
-letter-spacing:4px;
-color:#666;
-margin-bottom:25px;
+color:#005daa;
+font-weight:700;
+margin-top:4px;
+margin-bottom:18px;
+font-size:14px;
+letter-spacing:1px;
 text-transform:uppercase;
 }
 
 .progress-wrap{
-margin-bottom:30px;
-}
-
-.progress-label{
-display:flex;
-justify-content:space-between;
-font-size:14px;
-color:#555;
-margin-bottom:8px;
+margin-bottom:20px;
 }
 
 .progress-bar{
-height:10px;
+height:8px;
 background:#e5e7eb;
 border-radius:999px;
 overflow:hidden;
@@ -72,9 +68,16 @@ overflow:hidden;
 
 .progress{
 height:100%;
-background:#e31837;
 width:25%;
+background:#005daa;
 transition:.3s;
+}
+
+.percent{
+text-align:right;
+font-size:13px;
+margin-bottom:6px;
+color:#666;
 }
 
 .slide{
@@ -86,196 +89,123 @@ display:block;
 }
 
 h1{
-font-size:38px;
-text-align:center;
-margin-bottom:15px;
+font-size:28px;
 line-height:1.2;
+text-align:center;
+margin-bottom:12px;
+color:#111;
 }
 
-.subtitle{
+.desc{
 text-align:center;
+font-size:15px;
+line-height:1.5;
 color:#666;
-font-size:17px;
-line-height:1.6;
-margin-bottom:30px;
+margin-bottom:22px;
+}
+
+.btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:12px;
+background:#005daa;
+color:#fff;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
 }
 
 .option{
 width:100%;
-padding:22px;
-margin-bottom:15px;
-border:1px solid #d9d9d9;
-border-radius:14px;
+padding:16px;
+margin-bottom:12px;
+border:1px solid #dcdcdc;
+border-radius:12px;
 background:#fff;
-font-size:18px;
+font-size:16px;
 font-weight:600;
 cursor:pointer;
-transition:.2s;
 }
 
 .option:hover{
-background:#f7f7f7;
+background:#f8f8f8;
 }
 
-.step{
-display:flex;
-align-items:center;
-padding:18px;
-border:1px solid #e4e4e4;
-border-radius:14px;
-margin-bottom:15px;
-}
-
-.number{
-width:42px;
-height:42px;
-background:#e31837;
-color:#fff;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:700;
-margin-right:15px;
-}
-
-.step-text{
-font-size:18px;
-}
-
-.cta{
-display:block;
-width:100%;
-padding:22px;
-margin-top:25px;
-background:#e31837;
-color:#fff;
-text-decoration:none;
-text-align:center;
-font-size:22px;
-font-weight:700;
-border-radius:14px;
+.check{
+background:#f8fafc;
+border:1px solid #e5e7eb;
+padding:14px;
+border-radius:12px;
+margin-bottom:10px;
+font-size:15px;
 }
 
 .footer{
+margin-top:18px;
+font-size:12px;
 text-align:center;
-font-size:14px;
-color:#777;
-margin-top:20px;
-line-height:1.6;
+color:#888;
+line-height:1.5;
 }
 
-@media(max-width:600px){
-
-.logo{
-font-size:42px;
-}
-
-h1{
-font-size:28px;
-}
-
-.option{
-font-size:16px;
-}
-
-.step-text{
-font-size:16px;
-}
-
-}
 </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card">
 
 <div class="logo">COSTCO</div>
-<div class="sublogo">Summer Savings Event</div>
+<div class="tagline">Summer Savings Event</div>
 
 <div class="progress-wrap">
-<div class="progress-label">
-<span>Progress</span>
-<span id="percent">25%</span>
-</div>
-
+<div class="percent" id="percent">25%</div>
 <div class="progress-bar">
 <div class="progress" id="progress"></div>
 </div>
 </div>
 
-<!-- Slide 1 -->
-
 <div class="slide active" id="slide1">
 
-<h1>Summer Savings Are Here</h1>
+<h1>Save On Summer Essentials</h1>
 
-<p class="subtitle">
-Access seasonal discounts on outdoor furniture, patio sets, grills, appliances, electronics and more.
+<p class="desc">
+Access limited time savings on patio furniture, grills, outdoor living, electronics, appliances and more.
 </p>
 
-<button class="option" onclick="nextSlide(2,50)">
-Check Eligibility
+<button class="btn" onclick="showSlide(2,50)">
+CHECK ELIGIBILITY
 </button>
 
 </div>
-
-<!-- Slide 2 -->
 
 <div class="slide" id="slide2">
 
 <h1>How Often Do You Shop At Costco?</h1>
 
-<button class="option" onclick="nextSlide(3,100)">
-Weekly
-</button>
-
-<button class="option" onclick="nextSlide(3,100)">
-A Few Times A Month
-</button>
-
-<button class="option" onclick="nextSlide(3,100)">
-Occasionally
-</button>
-
-<button class="option" onclick="nextSlide(3,100)">
-Rarely
-</button>
+<button class="option" onclick="showSlide(3,100)">Weekly</button>
+<button class="option" onclick="showSlide(3,100)">A Few Times A Month</button>
+<button class="option" onclick="showSlide(3,100)">Occasionally</button>
+<button class="option" onclick="showSlide(3,100)">Rarely</button>
 
 </div>
-
-<!-- Slide 3 -->
 
 <div class="slide" id="slide3">
 
 <h1>Claim Your Summer Savings</h1>
 
-<div class="step">
-<div class="number">1</div>
-<div class="step-text">Click Claim Now</div>
-</div>
+<div class="check">✓ Enter your email</div>
+<div class="check">✓ Complete a few featured offers</div>
+<div class="check">✓ Unlock available Costco savings</div>
 
-<div class="step">
-<div class="number">2</div>
-<div class="step-text">Enter your email and basic information</div>
-</div>
-
-<div class="step">
-<div class="number">3</div>
-<div class="step-text">Complete 3 to 5 featured sponsor offers</div>
-</div>
-
-<div class="step">
-<div class="number">4</div>
-<div class="step-text">Access available Costco summer discounts</div>
-</div>
-
-<a href="YOUR_REDIRECT_LINK_HERE" class="cta">
+<a href="https://linkthem.net/aff_c?offer_id=1323&aff_id=62181">
+<button class="btn" style="margin-top:12px;">
 CLAIM NOW
+</button>
 </a>
 
 <div class="footer">
-Limited availability. New summer offers released daily.
+Limited availability. New summer savings are released daily.
 </div>
 
 </div>
@@ -284,17 +214,17 @@ Limited availability. New summer offers released daily.
 
 <script>
 
-function nextSlide(slideNumber, progressValue){
+function showSlide(next,percent){
 
-document.querySelectorAll('.slide').forEach(slide=>{
-slide.classList.remove('active');
+document.querySelectorAll('.slide').forEach(function(s){
+s.classList.remove('active');
 });
 
-document.getElementById('slide'+slideNumber).classList.add('active');
+document.getElementById('slide'+next).classList.add('active');
 
-document.getElementById('progress').style.width=progressValue+'%';
+document.getElementById('progress').style.width=percent+'%';
 
-document.getElementById('percent').innerText=progressValue+'%';
+document.getElementById('percent').innerHTML=percent+'%';
 
 }
 
