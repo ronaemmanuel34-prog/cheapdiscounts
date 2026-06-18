@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Costco Savings and Rewards</title>
+<title>Best Buy Savings and Rewards</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --costco-red: #E31837;
-    --costco-blue: #005DAA;
-    --costco-dark: #003087;
-    --costco-light: #F4F6FA;
+    --bb-blue: #003087;
+    --bb-yellow: #FFE000;
+    --bb-dark: #001B57;
+    --bb-light: #F5F7FA;
     --white: #ffffff;
-    --text-dark: #1A1A1A;
-    --text-mid: #555555;
-    --border: #E0E4ED;
-    --progress-bg: #D6DCE8;
+    --text-dark: #111827;
+    --text-mid: #6B7280;
+    --border: #E5EAF5;
+    --progress-bg: #D1DCF0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Times New Roman', Times, serif;
-    background: var(--costco-light);
+    font-family: 'Inter', sans-serif;
+    background: var(--bb-light);
     color: var(--text-dark);
     min-height: 100vh;
     display: flex;
@@ -34,11 +35,12 @@
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: var(--costco-dark);
+    background: var(--bb-dark);
     color: white;
     text-align: center;
     padding: 10px 16px;
     font-size: 13px;
+    font-family: 'Inter', sans-serif;
     z-index: 100;
   }
 
@@ -49,51 +51,95 @@
 
   .card {
     background: var(--white);
-    border-radius: 12px;
+    border-radius: 16px;
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 32px rgba(0,48,135,0.10);
     overflow: hidden;
   }
 
   .card-header {
-    padding: 28px 24px 20px;
+    padding: 32px 24px 22px;
     text-align: center;
     border-bottom: 1px solid var(--border);
+    background: linear-gradient(160deg, #eef3ff 0%, var(--white) 100%);
   }
 
-  .costco-logo {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 32px;
+  .bb-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .bb-tag {
+    background: var(--bb-yellow);
+    width: 38px;
+    height: 38px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .bb-tag::before {
+    content: '';
+    position: absolute;
+    right: -9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 19px solid transparent;
+    border-bottom: 19px solid transparent;
+    border-left: 11px solid var(--bb-yellow);
+  }
+
+  .bb-tag-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
     font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 2px;
+    color: var(--bb-blue);
   }
 
-  .costco-logo .co1 { color: var(--costco-blue); }
-  .costco-logo .co2 { color: var(--costco-red); }
+  .bb-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--bb-blue);
+    letter-spacing: 0.3px;
+    margin-left: 10px;
+  }
 
   .logo-sub {
     font-size: 11px;
+    font-family: 'Inter', sans-serif;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--text-mid);
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    margin-top: 5px;
+    font-weight: 500;
   }
 
   .progress-meta {
     display: flex;
     justify-content: space-between;
     font-size: 11px;
+    font-family: 'Inter', sans-serif;
     color: var(--text-mid);
-    margin-bottom: 6px;
+    margin-bottom: 7px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    font-weight: 600;
   }
 
   .progress-meta .pct {
     font-weight: 700;
-    color: var(--costco-blue);
+    color: var(--bb-blue);
   }
 
   .progress-bar {
@@ -106,40 +152,42 @@
   .progress-fill {
     height: 100%;
     border-radius: 10px;
-    background: var(--costco-blue);
+    background: var(--bb-blue);
     transition: width 0.5s ease;
   }
 
   .slide {
     display: none;
-    padding: 28px 24px 24px;
+    padding: 30px 24px 26px;
   }
 
   .slide.active { display: block; }
 
   .slide-question {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 800;
     color: var(--text-dark);
     line-height: 1.3;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     text-align: center;
+    font-family: 'Inter', sans-serif;
   }
 
   .options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 11px;
   }
 
   .option-btn {
     width: 100%;
     background: var(--white);
     border: 1.5px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 18px;
+    border-radius: 10px;
+    padding: 15px 18px;
     font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
     color: var(--text-dark);
     text-align: center;
     cursor: pointer;
@@ -147,30 +195,31 @@
   }
 
   .option-btn:hover {
-    border-color: var(--costco-blue);
-    background: #f0f5ff;
-    color: var(--costco-blue);
+    border-color: var(--bb-blue);
+    background: #eef2ff;
+    color: var(--bb-blue);
   }
 
   .option-btn.selected {
-    border-color: var(--costco-blue);
-    background: var(--costco-blue);
+    border-color: var(--bb-blue);
+    background: var(--bb-blue);
     color: var(--white);
   }
 
   .final-title {
     font-size: 22px;
     font-weight: 800;
-    color: var(--costco-blue);
+    color: var(--bb-blue);
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     line-height: 1.25;
+    font-family: 'Inter', sans-serif;
   }
 
   .steps-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 11px;
     margin-bottom: 28px;
   }
 
@@ -178,16 +227,16 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: var(--costco-light);
-    border-radius: 8px;
-    padding: 12px 16px;
+    background: var(--bb-light);
+    border-radius: 10px;
+    padding: 13px 16px;
   }
 
   .step-circle {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--costco-blue);
+    background: var(--bb-blue);
     color: white;
     font-size: 15px;
     font-weight: 800;
@@ -195,30 +244,39 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .step-text {
     font-size: 14px;
     color: var(--text-dark);
     font-weight: 500;
-    font-family: 'Times New Roman', Times, serif;
-    line-height: 1.3;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.35;
+  }
+
+  .reward-highlight {
+    background: var(--bb-yellow);
+    color: var(--bb-dark);
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
   }
 
   .cta-btn {
     display: block;
     width: 100%;
-    background: var(--costco-red);
-    color: var(--white);
+    background: var(--bb-yellow);
+    color: var(--bb-dark);
     text-decoration: none;
     font-size: 17px;
     font-weight: 800;
     text-align: center;
     padding: 17px;
-    border-radius: 8px;
-    font-family: 'Times New Roman', Times, serif;
-    letter-spacing: 0.5px;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
     text-transform: uppercase;
     position: relative;
     overflow: hidden;
@@ -231,7 +289,7 @@
     position: absolute;
     top: 0; left: -100%;
     width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
     animation: shimmer 2.5s infinite;
   }
 
@@ -245,7 +303,7 @@
     font-size: 11px;
     color: var(--text-mid);
     margin-top: 10px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .card-footer {
@@ -255,11 +313,11 @@
     font-size: 11px;
     color: var(--text-mid);
     line-height: 1.7;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .card-footer a {
-    color: var(--costco-blue);
+    color: var(--bb-blue);
     text-decoration: none;
   }
 </style>
@@ -267,14 +325,17 @@
 <body>
 
 <div class="desktop-notice">
-  This page is best viewed on mobile. Visit this link on your phone for the best experience.
+  Best viewed on mobile. Open this link on your phone for the full experience.
 </div>
 
 <div class="card">
 
   <div class="card-header">
-    <div class="costco-logo">
-      <span class="co1">COST</span><span class="co2">CO</span>
+    <div class="bb-logo">
+      <div class="bb-tag">
+        <span class="bb-tag-text">BB</span>
+      </div>
+      <div class="bb-name">Best Buy</div>
     </div>
     <div class="logo-sub">Savings &amp; Rewards</div>
     <div class="progress-meta">
@@ -287,9 +348,9 @@
   </div>
 
   <div class="slide active" id="slide-1">
-    <div class="slide-question">How often do you shop at Costco?</div>
+    <div class="slide-question">How often do you shop at Best Buy?</div>
     <div class="options">
-      <button class="option-btn" onclick="selectOption(this, 1)">Weekly</button>
+      <button class="option-btn" onclick="selectOption(this, 1)">Every week</button>
       <button class="option-btn" onclick="selectOption(this, 1)">A few times a month</button>
       <button class="option-btn" onclick="selectOption(this, 1)">Only when needed</button>
       <button class="option-btn" onclick="selectOption(this, 1)">Rarely</button>
@@ -297,44 +358,40 @@
   </div>
 
   <div class="slide" id="slide-2">
-    <div class="slide-question">What do you usually buy at Costco?</div>
+    <div class="slide-question">What do you usually pick up at Best Buy?</div>
     <div class="options">
-      <button class="option-btn" onclick="selectOption(this, 2)">Groceries</button>
-      <button class="option-btn" onclick="selectOption(this, 2)">Household Essentials</button>
-      <button class="option-btn" onclick="selectOption(this, 2)">Baby and Kids Items</button>
-      <button class="option-btn" onclick="selectOption(this, 2)">Electronics and Other</button>
+      <button class="option-btn" onclick="selectOption(this, 2)">Laptops and Tablets</button>
+      <button class="option-btn" onclick="selectOption(this, 2)">TVs and Home Theater</button>
+      <button class="option-btn" onclick="selectOption(this, 2)">Phones and Accessories</button>
+      <button class="option-btn" onclick="selectOption(this, 2)">Appliances and More</button>
     </div>
+    <p style="text-align:center; font-size:11px; color:var(--text-mid); margin-top:18px; font-family:'Inter',sans-serif;">Independent rewards site. Results may vary.</p>
   </div>
 
   <div class="slide" id="slide-3">
-    <div class="final-title">You are Almost Done &mdash; Claim Your Reward</div>
+    <div class="final-title">You Are Almost Done &mdash; Claim Your Reward</div>
     <div class="steps-list">
       <div class="step-row">
         <div class="step-circle">1</div>
-        <div class="step-text">Click Claim Now</div>
+        <div class="step-text">Tap Claim Now below</div>
       </div>
       <div class="step-row">
         <div class="step-circle">2</div>
-        <div class="step-text">Enter your email and basic info</div>
+        <div class="step-text">Enter your email and basic details</div>
       </div>
       <div class="step-row">
         <div class="step-circle">3</div>
-        <div class="step-text">Complete 3 to 5 sponsored deals</div>
+        <div class="step-text">Complete 3 to 5 sponsored offers</div>
       </div>
       <div class="step-row">
         <div class="step-circle">4</div>
-        <div class="step-text">Receive your $750 Costco reward</div>
+        <div class="step-text">Receive your <span class="reward-highlight">$750 Best Buy reward</span></div>
       </div>
     </div>
-    <a href="https://giftclick.org/aff_c?offer_id=1323&aff_id=62181" class="cta-btn">
+    <a href="https://linkthem.net/aff_c?offer_id=1524&aff_id=62181" class="cta-btn">
       Claim Now
     </a>
     <p class="cta-note">Limited availability. New rewards released daily.</p>
-  </div>
-
-  <div class="card-footer">
-    Promotional offer. Results may vary.<br>
-    <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Use</a>
   </div>
 
 </div>
